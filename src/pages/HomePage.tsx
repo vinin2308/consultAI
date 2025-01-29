@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, Brain, Users, Map } from 'lucide-react';
+import { FileText, Brain, Users, Map, Menu, X } from 'lucide-react';
 
 function HomePage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
       <div className="min-h-screen flex flex-col">
         {/* Header */}
@@ -12,7 +14,21 @@ function HomePage() {
               <div className="flex items-center">
                 <h1 className="text-2xl font-bold">ConsultAI</h1>
               </div>
-              <nav className="flex space-x-4">
+
+              {/* Mobile menu button */}
+              <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:text-blue-200 focus:outline-none"
+              >
+                {isMenuOpen ? (
+                    <X className="w-6 h-6" />
+                ) : (
+                    <Menu className="w-6 h-6" />
+                )}
+              </button>
+
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex space-x-4">
                 <Link
                     to="/exame"
                     className="px-4 py-2 rounded-md bg-white text-blue-600 hover:bg-blue-50 transition-colors"
@@ -42,6 +58,42 @@ function HomePage() {
                 </Link>
               </nav>
             </div>
+
+            {/* Mobile Navigation */}
+            <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} pt-4`}>
+              <div className="flex flex-col space-y-2">
+                <Link
+                    to="/exame"
+                    className="px-4 py-2 rounded-md bg-white text-blue-600 hover:bg-blue-50 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                <span className="flex items-center gap-2">
+                  <FileText className="w-4 h-4" />
+                  Exame
+                </span>
+                </Link>
+                <Link
+                    to="/roadmap"
+                    className="px-4 py-2 rounded-md bg-white text-blue-600 hover:bg-blue-50 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                <span className="flex items-center gap-2">
+                  <Map className="w-4 h-4" />
+                  Roadmap
+                </span>
+                </Link>
+                <Link
+                    to="/contatos"
+                    className="px-4 py-2 rounded-md bg-white text-blue-600 hover:bg-blue-50 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                <span className="flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  Contatos
+                </span>
+                </Link>
+              </div>
+            </div>
           </div>
         </header>
 
@@ -59,7 +111,7 @@ function HomePage() {
               <img
                   src="https://healthcare-mittelhessen.eu/wp-content/uploads/2019/05/Robotik-2.jpg"
                   alt="Robô médico com tecnologia avançada"
-                  className="rounded-xl shadow-2xl mx-auto mb-10 max-w-2xl object-cover h-[550px] w-full"
+                  className="rounded-xl shadow-2xl mx-auto mb-10 max-w-2xl object-cover h-[400px] w-full"
               />
               <Link
                   to="/exame"

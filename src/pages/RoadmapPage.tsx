@@ -1,6 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Star, Rocket, Brain, Shield, Globe, Users, Zap, MessageCircle } from 'lucide-react';
+import {
+    ArrowLeft,
+    Star,
+    Rocket,
+    Brain,
+    Shield,
+    Globe,
+    Users,
+    Zap,
+    MessageCircle,
+    History,
+    Image,
+    LineChart,
+} from 'lucide-react';
 
 function RoadmapPage() {
     return (
@@ -66,10 +79,10 @@ function RoadmapPage() {
                                 </div>
                             </div>
                             <div className="flex gap-3">
-                                <Users className="w-6 h-6 text-orange-500 flex-shrink-0" />
+                                <History className="w-6 h-6 text-purple-500 flex-shrink-0" />
                                 <div>
-                                    <h4 className="font-semibold text-gray-900 mb-2">Portal do Médico</h4>
-                                    <p className="text-gray-600">Área exclusiva para profissionais de saúde com recursos avançados</p>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Histórico de Consultas</h4>
+                                    <p className="text-gray-600">Suporte a chat com persistência e acompanhamento do paciente</p>
                                 </div>
                             </div>
                         </div>
@@ -83,17 +96,17 @@ function RoadmapPage() {
                         </div>
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="flex gap-3">
-                                <Brain className="w-6 h-6 text-red-500 flex-shrink-0" />
+                                <Image className="w-6 h-6 text-blue-500 flex-shrink-0" />
                                 <div>
-                                    <h4 className="font-semibold text-gray-900 mb-2">Análise Preditiva</h4>
-                                    <p className="text-gray-600">Implementação de modelos preditivos para identificação precoce de condições médicas</p>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Suporte a Exames de Imagem</h4>
+                                    <p className="text-gray-600">Análise de exames de imagem como raio-x, ressonância e tomografia</p>
                                 </div>
                             </div>
                             <div className="flex gap-3">
-                                <Shield className="w-6 h-6 text-teal-500 flex-shrink-0" />
+                                <LineChart className="w-6 h-6 text-teal-500 flex-shrink-0" />
                                 <div>
-                                    <h4 className="font-semibold text-gray-900 mb-2">Integração com Sistemas</h4>
-                                    <p className="text-gray-600">Conexão com sistemas hospitalares e laboratórios parceiros</p>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Suporte a múltiplos exames</h4>
+                                    <p className="text-gray-600">Traçar uma linha do tempo, gerando gráficos e inferindo tendências</p>
                                 </div>
                             </div>
                         </div>

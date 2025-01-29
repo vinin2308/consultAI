@@ -23,6 +23,7 @@ function ExamForm() {
   const [arquivo, setArquivo] = useState<File | null>(null);
   const [resposta, setResposta] = useState<string>('');
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string>('');
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -37,17 +38,20 @@ function ExamForm() {
       const file = e.target.files[0];
       if (file.type === 'application/pdf') {
         setArquivo(file);
+        setError('');
         // Criar URL para preview do PDF
         const fileUrl = URL.createObjectURL(file);
         setPreviewUrl(fileUrl);
       } else {
-        alert('Por favor, envie apenas arquivos PDF');
+        setError('Por favor, envie apenas arquivos PDF');
+        e.target.value = '';
       }
     }
   };
 
   const handleRemoveFile = () => {
     setArquivo(null);
+    setError('');
     if (previewUrl) {
       URL.revokeObjectURL(previewUrl);
       setPreviewUrl(null);
@@ -56,7 +60,12 @@ function ExamForm() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setResposta(`Dados recebidos com sucesso!\nNome: ${formData.nome}\nArquivo: ${arquivo?.name || 'Nenhum arquivo enviado'}`);
+    if (!arquivo) {
+      setError('Por favor, faça o upload de um arquivo PDF antes de enviar');
+      return;
+    }
+    setResposta(`Dados recebidos com sucesso!\nNome: ${formData.nome}\nArquivo: ${arquivo.name}`);
+    setError('');
   };
 
   return (
@@ -88,7 +97,7 @@ function ExamForm() {
                       required
                       value={formData.nome}
                       onChange={handleInputChange}
-                      className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -100,7 +109,7 @@ function ExamForm() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -112,7 +121,7 @@ function ExamForm() {
                       required
                       value={formData.idade}
                       onChange={handleInputChange}
-                      className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -125,7 +134,7 @@ function ExamForm() {
                       required
                       value={formData.peso}
                       onChange={handleInputChange}
-                      className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -138,7 +147,7 @@ function ExamForm() {
                       required
                       value={formData.altura}
                       onChange={handleInputChange}
-                      className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -149,7 +158,7 @@ function ExamForm() {
                       required
                       value={formData.sexo}
                       onChange={handleInputChange}
-                      className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   >
                     <option value="masculino">Masculino</option>
                     <option value="feminino">Feminino</option>
@@ -207,6 +216,9 @@ function ExamForm() {
                   <p className="text-xs text-gray-500">PDF até 10MB</p>
                 </div>
               </div>
+              {error && (
+                  <p className="text-red-500 text-sm mt-2">{error}</p>
+              )}
             </div>
 
             <button
