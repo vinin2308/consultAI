@@ -46,7 +46,7 @@ function ContactPage() {
                 type="text"
                 id="nome"
                 required
-                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors"
+                className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                 value={formData.nome}
                 onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
               />
@@ -60,7 +60,7 @@ function ContactPage() {
                 type="email"
                 id="email"
                 required
-                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors"
+                className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -74,7 +74,7 @@ function ContactPage() {
                 type="text"
                 id="assunto"
                 required
-                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors"
+                className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                 value={formData.assunto}
                 onChange={(e) => setFormData({ ...formData, assunto: e.target.value })}
               />
@@ -88,7 +88,7 @@ function ContactPage() {
                 id="mensagem"
                 rows={4}
                 required
-                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors"
+                className="mt-1 block w-full rounded-md border-2  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                 value={formData.mensagem}
                 onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
               />
