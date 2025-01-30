@@ -1,40 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    ArrowLeft,
-    Star,
-    Rocket,
-    Brain,
-    Shield,
-    Globe,
-    Users,
-    Zap,
-    MessageCircle,
-    History,
-    Image,
-    LineChart,
-} from 'lucide-react';
+import { ArrowLeft, Star, Rocket, Brain, Shield, Globe, Users, Zap, MessageCircle, History, Image, Cpu } from 'lucide-react';
 
 function RoadmapPage() {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-[#D0F2FC]">
             {/* Header */}
-            <header className="bg-[#D0F2FC] text-#2A2AD4">
+            <header className="bg-[#D0F2FC]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div className="flex justify-between items-center">
-                        <Link to="/" className="flex items-center space-x-2 text-2A2AD4 hover:text-blue-900">
+                        <Link to="/" className="flex items-center space-x-2 text-[#2A2AD4] hover:opacity-80">
                             <ArrowLeft className="w-5 h-5" />
                             <span>Voltar</span>
                         </Link>
-                        <h1 className="text-2xl font-bold">ConsultAI</h1>
+                        <h1 className="text-2xl font-bold text-[#2A2AD4]">ConsultAI</h1>
                     </div>
                 </div>
             </header>
 
             <main className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Nosso Roadmap</h2>
-                    <p className="text-xl text-gray-600">
+                    <h2 className="text-4xl font-bold text-[#2A2AD4] mb-4">Nosso Roadmap</h2>
+                    <p className="text-xl text-[#2A2AD4]">
                         Conheça os próximos passos e melhorias planejadas para o ConsultAI
                     </p>
                 </div>
@@ -55,6 +42,13 @@ function RoadmapPage() {
                                 </div>
                             </div>
                             <div className="flex gap-3">
+                                <Cpu className="w-6 h-6 text-purple-500 flex-shrink-0" />
+                                <div>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Multi-thread</h4>
+                                    <p className="text-gray-600">Implementação de suporte a múltiplos usuários simultâneos com processamento paralelo</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-3">
                                 <Shield className="w-6 h-6 text-green-500 flex-shrink-0" />
                                 <div>
                                     <h4 className="font-semibold text-gray-900 mb-2">Segurança Avançada</h4>
@@ -63,7 +57,6 @@ function RoadmapPage() {
                             </div>
                         </div>
                     </div>
-
                     {/* Q2 2025 */}
                     <div className="bg-white rounded-xl shadow-lg p-8">
                         <div className="flex items-center gap-3 mb-6">
@@ -82,11 +75,19 @@ function RoadmapPage() {
                                 <History className="w-6 h-6 text-purple-500 flex-shrink-0" />
                                 <div>
                                     <h4 className="font-semibold text-gray-900 mb-2">Histórico de Consultas</h4>
-                                    <p className="text-gray-600">Suporte a chat com persistência e acompanhamento do paciente</p>
+                                    <p className="text-gray-600">Sistema de armazenamento e visualização do histórico completo de consultas realizadas</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-3">
+                                <Cpu className="w-6 h-6 text-green-500 flex-shrink-0" />
+                                <div>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Suporte a RAG</h4>
+                                    <p className="text-gray-600">Maior eficiência do algoritmo</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
 
                     {/* Q3 2025 */}
                     <div className="bg-white rounded-xl shadow-lg p-8">
@@ -103,10 +104,10 @@ function RoadmapPage() {
                                 </div>
                             </div>
                             <div className="flex gap-3">
-                                <LineChart className="w-6 h-6 text-teal-500 flex-shrink-0" />
+                                <Shield className="w-6 h-6 text-teal-500 flex-shrink-0" />
                                 <div>
-                                    <h4 className="font-semibold text-gray-900 mb-2">Suporte a múltiplos exames</h4>
-                                    <p className="text-gray-600">Traçar uma linha do tempo, gerando gráficos e inferindo tendências</p>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Integração com Sistemas</h4>
+                                    <p className="text-gray-600">Conexão com sistemas hospitalares e laboratórios parceiros</p>
                                 </div>
                             </div>
                         </div>
