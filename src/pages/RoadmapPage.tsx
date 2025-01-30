@@ -19,10 +19,10 @@ function RoadmapPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Header */}
-            <header className="bg-blue-600 text-white">
+            <header className="bg-[#D0F2FC] text-#2A2AD4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div className="flex justify-between items-center">
-                        <Link to="/" className="flex items-center space-x-2 text-white hover:text-blue-100">
+                        <Link to="/" className="flex items-center space-x-2 text-2A2AD4 hover:text-blue-900">
                             <ArrowLeft className="w-5 h-5" />
                             <span>Voltar</span>
                         </Link>
